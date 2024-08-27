@@ -1,0 +1,11 @@
+read_verilog weights_memory.v
+read_verilog node.v
+
+//add your other modules here
+
+synth -top model
+hierarchy -check -top model
+
+proc; opt; memory; memory_dff; memory_collect; techmap; opt_clean;
+
+stat
